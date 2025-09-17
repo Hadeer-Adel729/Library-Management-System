@@ -1,0 +1,9 @@
+package code81.library.LibrarySystem.repository;
+
+import code81.library.LibrarySystem.entity.Publisher;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface PublisherRepository extends JpaRepository<Publisher,Integer> {
+
+    boolean existsBynameContainingIgnoreCase(String name);
+}

@@ -63,27 +63,6 @@ public class Book {
     )
     private Set<Publisher> publishers = new HashSet<>();
 
-
-    public void addAuthor(Author author) {
-        authors.add(author);
-        author.getBooks().add(this); // Maintain bidirectional relationship
-    }
-
-    public void removeAuthor(Author author) {
-        authors.remove(author);
-        author.getBooks().remove(this); // Maintain bidirectional relationship
-    }
-
-    public void addPublisher(Publisher publisher) {
-        publishers.add(publisher);
-        publisher.getBooks().add(this); // Maintain bidirectional relationship
-    }
-
-    public void removePublisher(Publisher publisher) {
-        publishers.remove(publisher);
-        publisher.getBooks().remove(this); // Maintain bidirectional relationship
-    }
-
     // Helper method for Category
     public void setCategory(Category category) {
         // Remove from old category
@@ -100,3 +79,22 @@ public class Book {
         }
     }
 }
+//    public void addAuthor(Author author) {
+//        authors.add(author);
+//        author.getBooks().add(this); // Maintain bidirectional relationship
+//    }
+//
+//    public void removeAuthor(Author author) {
+//        authors.remove(author);
+//        author.getBooks().remove(this); // Maintain bidirectional relationship
+//    }
+//
+//    public void addPublisher(Publisher publisher) {
+//        publishers.add(publisher);
+//        publisher.getBooks().add(this); // Maintain bidirectional relationship
+//    }
+//
+//    public void removePublisher(Publisher publisher) {
+//        publishers.remove(publisher);
+//        publisher.getBooks().remove(this); // Maintain bidirectional relationship
+//    }

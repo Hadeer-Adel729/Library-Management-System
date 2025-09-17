@@ -74,24 +74,24 @@ CREATE TABLE Books(
     FOREIGN KEY (category_id) REFERENCES Categories(id)
 );
 
--- Book-Authors table (many-to-many)
-CREATE TABLE BookAuthors(
-    book_id INT NOT NULL,
-    author_id INT NOT NULL,
-    author_order INT NOT NULL DEFAULT 1,
-    PRIMARY KEY (book_id, author_id),
-    FOREIGN KEY (book_id) REFERENCES Books(id) ON DELETE CASCADE,
-    FOREIGN KEY (author_id) REFERENCES Authors(id) ON DELETE CASCADE
-);
+-- -- Book-Authors table (many-to-many)
+-- CREATE TABLE BookAuthors(
+--     book_id INT NOT NULL,
+--     author_id INT NOT NULL,
+--     author_order INT NOT NULL DEFAULT 1,
+--     PRIMARY KEY (book_id, author_id),
+--     FOREIGN KEY (book_id) REFERENCES Books(id) ON DELETE CASCADE,
+--     FOREIGN KEY (author_id) REFERENCES Authors(id) ON DELETE CASCADE
+-- );
 
--- Book-Publishers table (many-to-many)
-CREATE TABLE BookPublishers(
-    book_id INT NOT NULL,
-    publisher_id INT NOT NULL,
-    PRIMARY KEY (book_id, publisher_id),
-    FOREIGN KEY (book_id) REFERENCES Books(id) ON DELETE CASCADE,
-    FOREIGN KEY (publisher_id) REFERENCES Publishers(id) ON DELETE CASCADE
-);
+-- -- Book-Publishers table (many-to-many)
+-- CREATE TABLE BookPublishers(
+--     book_id INT NOT NULL,
+--     publisher_id INT NOT NULL,
+--     PRIMARY KEY (book_id, publisher_id),
+--     FOREIGN KEY (book_id) REFERENCES Books(id) ON DELETE CASCADE,
+--     FOREIGN KEY (publisher_id) REFERENCES Publishers(id) ON DELETE CASCADE
+-- );
 
 -- Transactions table
 CREATE TABLE Transactions(
