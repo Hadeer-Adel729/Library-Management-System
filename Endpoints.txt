@@ -1,0 +1,50 @@
+Base URL: http://localhost:8080/api/v1/books
+Headers: Content-Type: application/json
+Get all (paged)
+Method: GET
+URL: /api/v1/books?page=0&size=10&sort=title,asc
+Get by ISBN
+Method: GET
+URL: /api/v1/books/{isbn}
+Filter by author
+Method: GET
+URL: /api/v1/books/filterByAuthor?author=Rowling&page=0&size=10
+Filter by publisher
+Method: GET
+URL: /api/v1/books/filterByPublisher?publisher=Penguin&page=0&size=10
+Filter by title
+Method: GET
+URL: /api/v1/books/filterByTitle?title=Clean%20Code
+Filter by category
+Method: GET
+URL: /api/v1/books/filterByCategory?category=Programming&page=0&size=10
+Delete by id
+Method: DELETE
+URL: /api/v1/books/{id}
+Create book
+Method: POST
+URL: /api/v1/books/addBook
+Body (example):
+{
+  "title": "Clean Code",
+  "isbn": "0132350882",
+  "edition": "1",
+  "summary": "A handbook of Agile software craftsmanship",
+  "categoryName": "Programming",
+  "availableCopies": 5,
+  "totalCopies": 5,
+  "coverUrl": "https://example.com/cleancode.jpg",
+  "publicationYear": 2008
+}
+Update book (by ISBN)
+Method: PUT
+URL: /api/v1/books/updateBook
+Body (example):
+{
+  "isbn": "0132350882",
+  "title": "Clean Code (Updated Edition)",
+  "edition": "2",
+  "availableCopies": 4,
+  "totalCopies": 6,
+  "categoryName": "Software Engineering"
+}

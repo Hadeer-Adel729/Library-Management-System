@@ -18,7 +18,6 @@ public class BookMapper {
         dto.setCategoryName(book.getCategory().getName());
         dto.setAvailableCopies(book.getAvailableCopies());
         dto.setTotalCopies(book.getTotalCopies());
-        dto.setCoverUrl(book.getCoverUrl());
         return dto;
     }
 
@@ -39,7 +38,6 @@ public class BookMapper {
         }
         book.setAvailableCopies(dto.getAvailableCopies());
         book.setTotalCopies(dto.getTotalCopies());
-        book.setCoverUrl(dto.getCoverUrl());
         return book;
     }
 

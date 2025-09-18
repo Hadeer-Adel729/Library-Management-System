@@ -1,7 +1,6 @@
 package code81.library.LibrarySystem.dto;
 
-import code81.library.LibrarySystem.entity.Category;
-import jakarta.persistence.*;
+
 import lombok.Getter;
 import lombok.Setter;
 

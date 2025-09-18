@@ -1,14 +1,10 @@
 package code81.library.LibrarySystem.service.impl;
 
 import code81.library.LibrarySystem.dto.BookDTO;
-import code81.library.LibrarySystem.entity.Book;
-import code81.library.LibrarySystem.entity.Category;
+import code81.library.LibrarySystem.entity.*;
 import code81.library.LibrarySystem.exception.*;
 import code81.library.LibrarySystem.mapper.BookMapper;
-import code81.library.LibrarySystem.repository.AuthorRepository;
-import code81.library.LibrarySystem.repository.BookRepository;
-import code81.library.LibrarySystem.repository.CategoryRepository;
-import code81.library.LibrarySystem.repository.PublisherRepository;
+import code81.library.LibrarySystem.repository.*;
 import code81.library.LibrarySystem.service.BookService;
 import lombok.*;
 import org.springframework.data.domain.*;
@@ -20,8 +16,8 @@ import java.util.*;
 @Service
 @AllArgsConstructor
 public class BookServiceImpl implements BookService {
-
     private final BookRepository bookRepository;
+
     private final BookMapper bookMapper;
     private final CategoryRepository categoryRepository;
     private final AuthorRepository authorRepository;
@@ -84,8 +80,7 @@ public class BookServiceImpl implements BookService {
         if (bookRepository.existsByisbn(book.getIsbn())) {
             throw new BookAlreadyExistException("Book with ISBN " + book.getIsbn() + " already exists");
         }
-
-        // Resolve category by name if provided (DTO mapper sets name only)
+        // Resolve category by name if provided
         if (book.getCategory() != null) {
             String categoryName = book.getCategory().getName();
             if (categoryName == null || categoryName.isBlank()) {
@@ -98,20 +93,16 @@ public class BookServiceImpl implements BookService {
                 book.setCategory(resolved);
             }
         }
-
         // Validate total copies
         if (book.getTotalCopies() == null || book.getTotalCopies() < 0) {
             throw new InvalidCopiesException("Total copies must be non-negative");
         }
-
         // Set available copies equal to total copies for new books
         book.setAvailableCopies(book.getTotalCopies());
 
         Book savedBook = bookRepository.save(book);
         return bookMapper.toDto(savedBook);
     }
-
-
 
 @Override
 @Transactional

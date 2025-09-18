@@ -1,6 +1,7 @@
 package code81.library.LibrarySystem.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 import lombok.*;
 
 
@@ -19,6 +20,7 @@ public class User {
     @Column(name = "name", nullable = false)
     private String name;
 
+    @Email(regexp = ".+@.+\\..+")
     @Column(name = "email", nullable = false, unique = true)
     private String email;
 

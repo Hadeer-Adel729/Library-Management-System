@@ -38,8 +38,8 @@ public class Book {
     @Column(name = "summary", columnDefinition = "TEXT")
     private String summary;
 
-    @Column(name = "cover_url")
-    private String coverUrl;
+//    @Column(name = "cover_url")
+//    private String coverUrl;
 
     @Column(name = "total_copies")
     private Integer totalCopies;
