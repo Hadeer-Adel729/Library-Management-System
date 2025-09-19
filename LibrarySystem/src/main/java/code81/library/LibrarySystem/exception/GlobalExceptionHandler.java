@@ -58,4 +58,8 @@ public class GlobalExceptionHandler extends RuntimeException{
     public ResponseEntity<String> handleInvalidISBN(InvalidISBNException ex) {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ex.getMessage());
     }
+    @ExceptionHandler(TransactionotFoundException.class)
+    public ResponseEntity<String> handleTransactionotFound(TransactionotFoundException ex) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
+    }
 }

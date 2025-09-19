@@ -1,5 +1,7 @@
 package code81.library.LibrarySystem.service.impl;
 
+import code81.library.LibrarySystem.dto.LoginRequestDTO;
+import code81.library.LibrarySystem.dto.UserDTO;
 import code81.library.LibrarySystem.entity.User;
 import code81.library.LibrarySystem.service.UserService;
 import jakarta.servlet.http.HttpSession;
@@ -25,23 +27,19 @@ public class UserServiceImpl implements UserService {
         return List.of();
     }
 
-//    @Override
-//    public boolean updateProfile(UserDTO user) {
-//        return false;
-//    }
-//
-//    @Override
-//    public UserDTO login(LoginRequestDTO loginRequestDto, HttpSession session) {
-//        return null;
-//    }
-//
-//    @Override
-//    public void logout(HttpSession session) {
-//
-//    }
-//
-//    @Override
-//    public User Register(User user) {
-//        return null;
-//    }
+    @Override
+    public UserDTO login(LoginRequestDTO loginRequestDto, HttpSession session) {
+        return null;
+    }
+
+    @Override
+    public void logout(HttpSession session) {
+
+    }
+
+    @Override
+    public User Register(User user) {
+        return null;
+    }
+
 }

@@ -78,23 +78,23 @@ public class Book {
             category.getBooks().add(this);
         }
     }
+    public void addAuthor(Author author) {
+        authors.add(author);
+        author.getBooks().add(this); // Maintain bidirectional relationship
+    }
+
+    public void removeAuthor(Author author) {
+        authors.remove(author);
+        author.getBooks().remove(this); // Maintain bidirectional relationship
+    }
+
+    public void addPublisher(Publisher publisher) {
+        publishers.add(publisher);
+        publisher.getBooks().add(this); // Maintain bidirectional relationship
+    }
+
+    public void removePublisher(Publisher publisher) {
+        publishers.remove(publisher);
+        publisher.getBooks().remove(this); // Maintain bidirectional relationship
+    }
 }
-//    public void addAuthor(Author author) {
-//        authors.add(author);
-//        author.getBooks().add(this); // Maintain bidirectional relationship
-//    }
-//
-//    public void removeAuthor(Author author) {
-//        authors.remove(author);
-//        author.getBooks().remove(this); // Maintain bidirectional relationship
-//    }
-//
-//    public void addPublisher(Publisher publisher) {
-//        publishers.add(publisher);
-//        publisher.getBooks().add(this); // Maintain bidirectional relationship
-//    }
-//
-//    public void removePublisher(Publisher publisher) {
-//        publishers.remove(publisher);
-//        publisher.getBooks().remove(this); // Maintain bidirectional relationship
-//    }
