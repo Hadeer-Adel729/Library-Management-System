@@ -5,7 +5,7 @@ A RESTful Library Management System built with Spring Boot 3, Spring Security (J
 ### Postman Collection
 Use the curated Postman collection to explore and test the API endpoints:
 
-- Postman Collection: [Library System API Collection](https://crimson-rocket-502695.postman.co/workspace/Personal-Workspace~ad93f884-1f52-4217-bc21-cdfa4e2f8bc8/collection/25088152-a826ae3a-7b79-4737-83ee-6f8ea9ef0f42?action=share&creator=25088152)
+- Postman Collection: [Library System API Collection](https://documenter.getpostman.com/view/25088152/2sB3HroJqt)
 
 ## Prerequisites
 - Java 21
