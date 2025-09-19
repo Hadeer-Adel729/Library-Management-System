@@ -11,6 +11,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -38,6 +39,7 @@ public class BookController {
     }
 
     @PostMapping
+    @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<BookDTO> CreateBook(@RequestBody BookDTO bookRequest) {
         Book book = bookMapper.toEntity(bookRequest);
         BookDTO savedBook = bookService.addBook(book);
@@ -45,6 +47,7 @@ public class BookController {
     }
 
     @PutMapping
+    @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<BookDTO> UpdateBook(@RequestBody BookDTO book) {
         return new ResponseEntity<>(
                 bookService.updateBook(book.getIsbn() , book)
@@ -52,6 +55,7 @@ public class BookController {
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<String> deleteBook(@PathVariable Integer id) {
         bookService.deleteBook(id);
         return new ResponseEntity<>("Deleted Successfully" ,HttpStatus.OK);

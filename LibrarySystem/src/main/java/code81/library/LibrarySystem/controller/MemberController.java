@@ -10,6 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
@@ -36,21 +37,24 @@ public class MemberController {
     }
 
     @PostMapping
-    public ResponseEntity<MemberDTO> CreateBook(@RequestBody CreateMemberDTO memberRequest) {
+    @PreAuthorize("hasAuthority('ADMIN')")
+    public ResponseEntity<MemberDTO> CreateMember(@RequestBody CreateMemberDTO memberRequest) {
         Member member = memberMapper.toEntity(memberRequest);
         MemberDTO savedMember = memberService.createMember(member);
         return new ResponseEntity<>(savedMember, HttpStatus.CREATED);
     }
 
     @PutMapping
-    public ResponseEntity<MemberDTO> UpdateBook(@RequestBody MemberDTO memberDTO) {
+    @PreAuthorize("hasAuthority('ADMIN')")
+    public ResponseEntity<MemberDTO> UpdateMember(@RequestBody MemberDTO memberDTO) {
         return new ResponseEntity<>(
                 memberService.updateMember(memberDTO.getMembershipNumber() , memberDTO)
                 , HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteBook(@PathVariable Integer id) {
+    @PreAuthorize("hasAuthority('ADMIN')")
+    public ResponseEntity<String> deleteMember(@PathVariable Integer id) {
         memberService.deleteMember(id);
         return new ResponseEntity<>("Deleted Successfully" ,HttpStatus.OK);
     }
